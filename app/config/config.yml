@@ -23,6 +23,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    translator: { fallback: en }
 
 # Twig Configuration
 twig:
@@ -70,3 +71,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+hautelook_alice:
+    locale: en_US
+    seed: 1
