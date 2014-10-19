@@ -1,0 +1,18 @@
+WSP\FirstBundle\Entity\User:
+    # one predefined user for testing
+    user{0}:
+        username: user
+        password: user
+        email: user@user.com
+    user{1..2}:
+        username (unique): <username()>
+        password: <word()>
+        email (unique): <email()>
+
+WSP\FirstBundle\Entity\Exercise:
+    exercise{1..400}:
+        description: <randomElement(["Biceps Curl", "Front Lunge", "Pullover"])>
+        weight: <numberBetween(20, 200)>
+        count: <numberBetween(5, 15)>
+        date: <dateTimeBetween('-30 days', 'now')>
+        user: @user*

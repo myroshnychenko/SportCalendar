@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+{% block title %}{{ 'calendar.index.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <p class="text-right"><a href="{{ path('logout') }}">{{ 'calendar.index.logout'|trans }}</a></p>
+    <h1>{{ 'calendar.index.greetings'|trans({'%user%': app.user.username}) }}</h1>
+    <p>{{ 'calendar.index.intro'|trans }}</p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>{{ 'calendar.index.table.two_week'|trans }}</th>
+            <th>{{ 'calendar.index.table.one_week'|trans }}</th>
+            <th>{{ 'calendar.index.table.today'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="wrapper">
+            <td class="2week">
+                <table>
+                    {% for exercise in statistic['twoWeeksAgo'] %}
+                        <tr>
+                            <td>{{ exercise.description }}</td>
+                            <td>&nbsp;{{ exercise.weight }} kg x {{ exercise.count }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+            <td class="1week">
+                <table>
+                    {% for exercise in statistic['oneWeekAgo'] %}
+                        <tr>
+                            <td>{{ exercise.description }}</td>
+                            <td>&nbsp;{{ exercise.weight }} kg x {{ exercise.count }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+            <td class="today">
+                <table>
+                    {% for exercise in statistic['today'] %}
+                        <tr>
+                            <td>{{ exercise.description }}</td>
+                            <td>&nbsp;{{ exercise.weight }} kg x {{ exercise.count }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

@@ -1,4 +1,14 @@
+parameters:
+    wsp_first_bundle.sport_calendar.class: WSP\FirstBundle\Service\SportCalendar
+    wsp_first_bundle.sport_calendar.entity: WSP\FirstBundle\Entity\Exercise
+
 services:
-#    first.example:
-#        class: WSP\FirstBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    wsp_first_bundle.sport_calendar.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments: [%wsp_first_bundle.sport_calendar.entity%]
+
+    wsp_first_bundle.sport_calendar:
+        class: %wsp_first_bundle.sport_calendar.class%
+        arguments: [@wsp_first_bundle.sport_calendar.repository]
