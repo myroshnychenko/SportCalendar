@@ -1,0 +1,31 @@
+services:
+    sonata.admin.jam_type:
+        class: WSP\SecondBundle\Admin\JamTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Enumerations", label: "Jam Type" }
+        arguments:
+            - ~
+            - WSP\SecondBundle\Entity\JamType
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataBundle]]
+    sonata.admin.jam_production_year:
+            class: WSP\SecondBundle\Admin\JamProductionYearAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Enumerations", label: "Jam Production Year" }
+            arguments:
+                - ~
+                - WSP\SecondBundle\Entity\JamProductionYear
+                - ~
+            calls:
+                - [ setTranslationDomain, [SonataBundle]]
+    sonata.admin.jam:
+                class: WSP\SecondBundle\Admin\JamAdmin
+                tags:
+                    - { name: sonata.admin, manager_type: orm, group: "Entities", label: "Jam" }
+                arguments:
+                    - ~
+                    - WSP\SecondBundle\Entity\Jam
+                    - ~
+                calls:
+                    - [ setTranslationDomain, [SonataBundle]]
