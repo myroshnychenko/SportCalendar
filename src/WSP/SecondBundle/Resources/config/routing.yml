@@ -1,0 +1,9 @@
+wsp_secondbundle:
+    resource: "@SecondBundle"
+    type: annotation
+    prefix: /{_locale}/
+    requirements: { _locale: en|ru }
+
+second_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SecondBundle:Default:index }

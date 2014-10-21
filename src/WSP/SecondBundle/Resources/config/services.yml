@@ -1,0 +1,4 @@
+services:
+     sonata.jam:
+         class: WSP\SecondBundle\Service\JamDuplicateService
+         arguments: [ @doctrine.orm.entity_manager ]
