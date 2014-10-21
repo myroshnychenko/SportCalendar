@@ -7,7 +7,6 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-
 class JamTypeAdmin extends Admin
 {
     /** @var string route */
@@ -37,4 +36,4 @@ class JamTypeAdmin extends Admin
             ->addIdentifier('name')
         ;
     }
-} 
+}

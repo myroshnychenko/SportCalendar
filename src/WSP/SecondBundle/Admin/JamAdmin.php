@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: d.myroshnychenko
- * Date: 10/20/2014
- * Time: 8:42 PM
- */
 
 namespace WSP\SecondBundle\Admin;
 
@@ -12,14 +6,17 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-
+use WSP\SecondBundle\Service\JamDuplicateService;
 
 class JamAdmin extends Admin
 {
+    const FIELD_AMOUNT = 'amount';
+
     /** @var string route */
     protected $baseRoutePattern = 'jam';
 
-    const FIELD_AMOUNT = 'amount';
+    /** @var JamDuplicateService */
+    protected $jamService;
 
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
@@ -60,6 +57,16 @@ class JamAdmin extends Admin
     }
 
     /**
+     * JamService setter for DI
+     *
+     * @param JamDuplicateService $jamService
+     */
+    public function setJamService(JamDuplicateService $jamService)
+    {
+        $this->jamService = $jamService;
+    }
+
+    /**
      * @inheritdoc
      */
     public function postPersist($entity)
@@ -70,4 +77,4 @@ class JamAdmin extends Admin
             $this->jamService->duplicate($entity, $amount - 1);
         }
     }
-} 
+}
