@@ -2,10 +2,12 @@
 
 namespace WSP\SecondBundle\Tests\Service;
 
-use PHPUnit_Framework_TestCase;
 use WSP\SecondBundle\Service\JamDuplicateService;
 
-class JamDuplicateServiceTest extends PHPUnit_Framework_TestCase
+/**
+ * @IgnoreAnnotation("dataProvider")
+ */
+class JamDuplicateServiceTest extends \PHPUnit_Framework_TestCase
 {
     public function duplicateProvider()
     {
