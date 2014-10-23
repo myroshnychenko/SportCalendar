@@ -24,6 +24,8 @@ security:
 
     access_control:
         - { path: /login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/(_(profiler|wdt)|css|images|js)/, roles: IS_AUTHENTICATED_ANONYMOUSLY}
         - { path: ^/, roles: [ROLE_USER, ROLE_ADMIN] }
 

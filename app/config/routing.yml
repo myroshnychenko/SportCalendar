@@ -1,3 +1,8 @@
+third:
+    resource: "@ThirdBundle/Controller"
+    prefix:   /
+    type: annotation
+
 second:
     resource: "@SecondBundle/Resources/config/routing.yml"
     prefix:   /

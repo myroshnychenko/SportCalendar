@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             new WSP\FirstBundle\FirstBundle(),
             new WSP\SecondBundle\SecondBundle(),
+            new WSP\ThirdBundle\ThirdBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

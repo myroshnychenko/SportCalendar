@@ -1,0 +1,4 @@
+services:
+    wsp_third_bundle.student:
+        class: WSP\ThirdBundle\Service\StudentService
+        arguments: [@doctrine.orm.entity_manager]
